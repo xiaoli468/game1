@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4f7fb" />
+    <meta name="description" content="在 60 秒内找出颜色不同的方块，看看你的色彩观察力有多敏锐。" />
+    <title>色差研究所</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23eef2f7'/%3E%3Crect x='12' y='12' width='18' height='18' rx='5' fill='%235b7cfa'/%3E%3Crect x='34' y='12' width='18' height='18' rx='5' fill='%235b7cfa'/%3E%3Crect x='12' y='34' width='18' height='18' rx='5' fill='%235b7cfa'/%3E%3Crect x='34' y='34' width='18' height='18' rx='5' fill='%237b96ff'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <main class="game-shell">
+      <header class="brand-row">
+        <div>
+          <p class="eyebrow">COLOR SENSE · 60 SEC</p>
+          <h1>色差研究所</h1>
+        </div>
+        <button class="sound-button" id="soundButton" type="button" aria-label="关闭音效" aria-pressed="true">
+          <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9v6h4l5 4V5L9 9H5Zm12.5 3a4.5 4.5 0 0 0-2-3.74v7.48A4.5 4.5 0 0 0 17.5 12Z"/></svg>
+          <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true"><path d="m16.7 12 2.15-2.15-1.4-1.4-2.16 2.14-2.14-2.14-1.4 1.4L13.88 12l-2.14 2.15 1.41 1.4 2.14-2.14 2.15 2.14 1.41-1.4L16.7 12ZM5 9v6h4l5 4v-3.18L9.72 12 14 8.18V5L9 9H5Z"/></svg>
+        </button>
+      </header>
+
+      <section class="game-card" aria-label="找不同颜色游戏">
+        <div class="stats" aria-live="polite">
+          <div class="stat"><span>得分</span><strong id="score">0</strong></div>
+          <div class="stat stat-level"><span>关卡</span><strong id="level">1</strong></div>
+          <div class="stat stat-time"><span>剩余</span><strong><span id="time">60</span><small>秒</small></strong></div>
+        </div>
+
+        <div class="timer-track" aria-hidden="true"><div class="timer-fill" id="timerFill"></div></div>
+
+        <div class="board-wrap">
+          <div class="board" id="board" role="grid" aria-label="色块网格"></div>
+
+          <div class="start-layer" id="startLayer">
+            <div class="sample-mark" aria-hidden="true"><span></span><span></span><span></span><span class="odd"></span></div>
+            <h2>找出不一样的颜色</h2>
+            <p>你有 60 秒。越往后，差别越微妙。</p>
+            <button class="primary-button" id="startButton" type="button">开始挑战 <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="result-layer" id="resultLayer" hidden>
+            <p class="result-kicker">TIME UP</p>
+            <p class="final-score"><span id="finalScore">0</span><small>分</small></p>
+            <h2 id="resultTitle">色彩萌新</h2>
+            <p id="resultCopy">眼睛正在热身，再来一次就更敏锐。</p>
+            <button class="primary-button" id="restartButton" type="button">再玩一次 <span aria-hidden="true">↻</span></button>
+          </div>
+        </div>
+
+        <p class="hint" id="hint">凭直觉，点出颜色略有不同的那一格</p>
+      </section>
+
+      <footer>请调亮屏幕 · 放松眼睛 · 相信第一感觉</footer>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
+
